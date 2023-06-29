@@ -5,6 +5,7 @@ import Main from "../layout/Main";
 import Home from "../components/Home/Home";
 import ChefRecipe from "../components/Recipe/ChefRecipe";
 import Chef from "../components/Home/ChefCard/Chef";
+import NotFound from "../components/NotFound/NotFound";
 
 
 
@@ -34,6 +35,10 @@ const router =createBrowserRouter([
             {
                 path:'/chefs',
                 element: <Chef></Chef>
+            },
+            {
+                path:'*',
+                element: <NotFound></NotFound>
             }
             
         ]

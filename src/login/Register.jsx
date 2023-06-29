@@ -4,7 +4,7 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const {createUser}=useContext(AuthContext);
+    const {createUser, updateUserProfile}=useContext(AuthContext);
 
     // const [name, setName]= useState("");
     // const [email, setEmail]= useState("");
@@ -31,6 +31,11 @@ const Register = () => {
         .then(result =>{
             const createdUser = result.user;
             console.log(createdUser);
+
+            updateUserProfile(name, photoUrl)
+            .then(()=>{
+                
+            })
         })
         .catch(error =>{
             console.log(error);

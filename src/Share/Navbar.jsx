@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaUser } from 'react-icons/fa';
+import ActiveLink from '../components/ActiveLink/ActiveLink';
 
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext);
+    
 
     const handleLogOut = () => {
         logOut()
@@ -16,13 +19,17 @@ const NavBar = () => {
                     <a className="btn btn-ghost normal-case text-xl">The Best Chef Recipe Hunter</a>
                 </div>
                 <div>
-                    <NavLink className='ml-6' to="/">Home</NavLink>
-                    <NavLink className='ml-6 mr-6' to="/blog">Blog</NavLink>
-                    {user ? <button onClick={handleLogOut}>Log out</button> :
-                        <div>
-                            <NavLink className='ml-6' to="/login">Login</NavLink>
-                            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
-                        </div>
+                    <ActiveLink  className='ml-6' to="/">Home</ActiveLink>
+                    <ActiveLink  className='ml-6 mr-6' to="/blog">Blog</ActiveLink>
+                    
+                    {user ? 
+                    <div className='flex'>
+                        <button onClick={handleLogOut}>Log out</button> 
+                        <FaUser className='ml-6 ' style={{fontSize:'35px'}}></FaUser>
+                    </div> 
+                    :<ActiveLink className='ml-6' to="/login">Login</ActiveLink>
+                            
+                        
                     }
                 </div>
 

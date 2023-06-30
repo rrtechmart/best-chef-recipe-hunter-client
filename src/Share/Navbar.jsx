@@ -18,19 +18,28 @@ const NavBar = () => {
                 <div>
                     <a className="btn btn-ghost normal-case text-xl">The Best Chef Recipe Hunter</a>
                 </div>
-                <div>
-                    <ActiveLink  className='ml-6' to="/">Home</ActiveLink>
-                    <ActiveLink  className='ml-6 mr-6' to="/blog">Blog</ActiveLink>
+                <div className='justify-around'>
+                    <ActiveLink  className='mr-6' to="/">Home</ActiveLink>
+                    <ActiveLink  className='ml-6' to="/blog">Blog</ActiveLink>
                     
                     {user ? 
                     <div className='flex'>
-                        <button onClick={handleLogOut}>Log out</button> 
-                        <FaUser className='ml-6 ' style={{fontSize:'35px'}}></FaUser>
+                        <button className='ml-6' onClick={handleLogOut}>Log out</button> 
+                        {/* <FaUser className='ml-6 ' style={{fontSize:'35px'}}></FaUser> */}
+                        <img  className='w-[35px] h-[35px] rounded ml-6 ' src={user?.photoURL} alt="" />
                     </div> 
                     :<ActiveLink className='ml-6' to="/login">Login</ActiveLink>
-                            
-                        
+                          
                     }
+
+                    {
+                        user && <div> 
+                            <p className='ml-6'>Email: {user?.email} </p>
+                            
+                             </div>
+                    }
+
+                    
                 </div>
 
 

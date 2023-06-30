@@ -9,7 +9,7 @@ const Register = () => {
     // const [name, setName]= useState("");
     // const [email, setEmail]= useState("");
     // const [password, setPassword]= useState("");
-    // const [error, setError]= useState("");
+    const [error, setError]= useState("");
 
     const handleRegister =(event)=>{
         event.preventDefault();
@@ -31,6 +31,7 @@ const Register = () => {
         .then(result =>{
             const createdUser = result.user;
             console.log(createdUser);
+            setError('')
 
             updateUserProfile(name, photoUrl)
             .then(()=>{
@@ -38,7 +39,8 @@ const Register = () => {
             })
         })
         .catch(error =>{
-            console.log(error);
+            console.error(error.message);
+            setError(error.message);
         })
 
     }
@@ -58,13 +60,7 @@ const Register = () => {
                             </label>
                             <input type="text" name='name' required placeholder="Enter your name please" className="input input-bordered" />
                         </div>
-
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Photo URL</span>
-                            </label>
-                            <input type="text" name='photoUrl' required placeholder="Photo URL" className="input input-bordered" />
-                        </div>
+                        
 
                         <div className="form-control">
                             <label className="label">
@@ -81,11 +77,20 @@ const Register = () => {
                             
                         </div>
 
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" name='photoUrl' required placeholder="Photo URL" className="input input-bordered" />
+                        </div>
+
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
                     </form>
                     <small className='text-center mb-2'> <p>Have an account?? <Link to='/login'> Login</Link> </p> </small>
+
+                    <p className='text-red-600'> {error} </p>
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ const NavBar = () => {
     return (
         <div className='flex bg-blue-600 justify-around p-1 rounded-md text-white'>
 
-            <div className="navbar text-primary-content w-4/5 justify-between">
+            <div className="navbar grid md:grid-cols-2 text-primary-content w-4/5 justify-between">
                 <div>
                     <a className="btn btn-ghost normal-case text-xl">The Best Chef Recipe Hunter</a>
                 </div>
@@ -32,12 +32,7 @@ const NavBar = () => {
                           
                     }
 
-                    {
-                        user && <div> 
-                            <p className='ml-6'>Email: {user?.email} </p>
-                            
-                             </div>
-                    }
+                    
 
                     
                 </div>

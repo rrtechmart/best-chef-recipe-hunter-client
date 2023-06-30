@@ -6,6 +6,7 @@ import Home from "../components/Home/Home";
 import ChefRecipe from "../components/Recipe/ChefRecipe";
 import Chef from "../components/Home/ChefCard/Chef";
 import NotFound from "../components/NotFound/NotFound";
+import Blog from "../components/Blog/Blog";
 
 
 
@@ -18,7 +19,12 @@ const router =createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
-              },            
+              },
+              {
+                path:'/blog',
+                element: <Blog></Blog>
+
+              },           
             {
                 path:'/login',
                 element: <Login></Login>

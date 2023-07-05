@@ -5,12 +5,18 @@ import RecipeCard from './RecipeCard';
 const ChefRecipe = () => {
 
     const chef = useLoaderData();
-    const { name, c_image, bio_data, experience, likes, numRecipes, recipes } = chef;
+    const { name, id, c_image, bio_data, experience, likes, numRecipes, recipes } = chef;
     console.log(chef);
 
     
     return (
         <div>
+            <div>
+                <h1 className='text-5xl text-center my-6 font-bold'>Chef's detail and his recipes</h1>
+                <p>
+                Our chefs are the backbone of our culinary team, bringing their expertise and passion to every dish they create. With years of experience and a deep understanding of flavors, they craft delectable creations that tantalize the taste buds. Their creativity knows no bounds as they experiment with unique ingredients and innovative techniques, constantly pushing the boundaries of gastronomy. Their dedication to quality shines through in every plate, ensuring that our guests have an unforgettable dining experience. From their meticulous attention to detail to their ability to elevate simple ingredients into extraordinary culinary masterpieces, our chefs are the true stars behind our exceptional cuisine.
+                </p>
+            </div>
 
             <div className="card w-96 bg-base-100 shadow-xl mx-auto my-4">
                 <figure className="px-10 pt-10">
@@ -43,7 +49,7 @@ const ChefRecipe = () => {
 
                         {
                             recipes.map(recipe => <RecipeCard
-                                key={chef.id}
+                                key={id}
                                 recipe={recipe}
                             ></RecipeCard>)
                         }

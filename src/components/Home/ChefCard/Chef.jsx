@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import ChefCard from './ChefCard';
 
 
@@ -7,7 +6,7 @@ const Chef = () => {
     const [chefs, setChef] = useState([]);
     console.log(chefs);
     useEffect( ()=>{
-        fetch('http://localhost:5000/chefs')
+        fetch('https://best-chef-recipe-hunter-server.vercel.app/chefs')
         .then(res =>res.json())
         .then(data => setChef(data))
     },[])
